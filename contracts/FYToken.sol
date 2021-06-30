@@ -4,13 +4,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
-interface IFYToken {
-    /// @dev Asset that is returned on redemption.
-    function underlying() external view returns (address);
-
-    /// @dev Unix time at which redemption of fyToken for underlying are possible
-    function maturity() external view returns (uint256);
-}
+import "./IFYToken.sol";
 
 contract FYToken is Initializable, ERC20PermitUpgradeable, IFYToken {
     uint256 public override maturity;
