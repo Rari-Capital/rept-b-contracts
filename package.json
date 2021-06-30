@@ -1,11 +1,11 @@
 {
-  "name": "rari-bonds",
+  "name": "rept-b-contracts",
   "version": "0.1.0",
-  "description": "Rari Ethereum Pool Bonds (REPT-b) are YieldSpace bonds in the form of an fyToken for Rari Ethereum Pool hack victims.",
+  "description": "Rari Ethereum Pool Reimbursement Tokens (REPT-b) are YieldSpace fyTokens representing future reimbursements to Rari Ethereum Pool hack victims.",
   "main": "hardhat-config.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Rari-Capital/rari-bonds.git"
+    "url": "https://github.com/Rari-Capital/rept-b-contracts.git"
   },
   "author": {
     "name": "David Lucid",
@@ -14,9 +14,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rari-Capital/rari-bonds/issues"
+    "url": "https://github.com/Rari-Capital/rept-b-contracts/issues"
   },
-  "homepage": "https://github.com/Rari-Capital/rari-bonds#readme",
+  "homepage": "https://github.com/Rari-Capital/rept-b-contracts#readme",
   "dependencies": {
     "@openzeppelin/contracts-upgradeable": "^4.1.0"
   },

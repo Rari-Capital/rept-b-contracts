@@ -1,3 +1,3 @@
-# Rari Ethereum Pool Bonds (REPT-b)
+# Ethereum Pool Reimbursement Tokens (REPT-b)
 
-This repository contains the Solidity source code for the smart contracts behind Rari Ethereum Pool Bonds (REPT-b): YieldSpace bonds in the form of an fyToken for Rari Ethereum Pool hack victims.
+This repository contains the Solidity source code for the smart contracts behind Rari Ethereum Pool Reimbursement Tokens (REPT-b), YieldSpace fyTokens representing future reimbursements to Rari Ethereum Pool hack victims. REPT-b tokens are redeemable for DAI over a term of 4 years from the time the [governance proposal passed](https://vote.rari.capital/#/rari/proposal/QmRZNQCGsKvBH22p6SoGLHrbkRLjKbRLhBjiru7hZJsLqo). All hack victims are each allocated 100% of the DAI value of their respective ETH losses at the [$3,916.25 ETH/USD rate at time of the hack](https://etherscan.io/block/12394006).
