@@ -36,6 +36,9 @@ async function main() {
     }
   }
 
+  // Remove zero-value refunds
+  for (const x of Object.keys(refunds)) if (refunds[x].isZero()) delete refunds[x];
+
   // Get ETH sum
   var sum = Web3.utils.toBN(0);
   for (const x of Object.keys(refunds)) sum.iadd(refunds[x]);
