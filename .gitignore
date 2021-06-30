@@ -1,0 +1,14 @@
+# Dependency directory
+node_modules
+
+# Local environment variables
+.env
+
+# Hardhat
+cache/
+artifacts/
+
+# OpenZeppelin development artifacts
+.openzeppelin/*
+!.openzeppelin/mainnet.json
+!.openzeppelin/ropsten.json
