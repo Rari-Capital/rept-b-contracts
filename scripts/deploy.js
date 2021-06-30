@@ -26,7 +26,7 @@ async function main() {
   // We get the contract to deploy
   const FYToken = await hre.ethers.getContractFactory("FYToken");
   const fyToken = await hre.upgrades.deployProxy(FYToken, [
-    1622833200, // https://ipfs.fleek.co/ipfs/QmRZNQCGsKvBH22p6SoGLHrbkRLjKbRLhBjiru7hZJsLqo
+    1749063600, // Proposal closing time 1622833200 + 4 years: https://ipfs.fleek.co/ipfs/QmRZNQCGsKvBH22p6SoGLHrbkRLjKbRLhBjiru7hZJsLqo
     daiSum.toString(),
     "0x6b175474e89094c44da98b954eedeac495271d0f",
     "REPT-b",
