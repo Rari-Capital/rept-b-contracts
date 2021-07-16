@@ -6,10 +6,18 @@ import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 
 import "./IFYToken.sol";
 
+/// @title FYToken
+/// @author David Lucid <david@rari.capital> (https://github.com/davidlucid)
+/// @author David Mihal (https://github.com/dmhial)
+/// @notice Rari Ethereum Pool Reimbursement Tokens (REPT-b) are YieldSpace fyTokens representing future reimbursements to Rari Ethereum Pool hack victims.
 contract FYToken is Initializable, ERC20PermitUpgradeable, IFYToken {
+    /// @dev Asset that is returned on redemption.
     uint256 public override maturity;
+
+    /// @dev Unix time at which redemption of fyToken for underlying are possible
     address public override underlying;
 
+    /// @dev Initializer function
     function initialize(
         uint256 _maturity,
         uint256 mintAmount,
@@ -27,6 +35,7 @@ contract FYToken is Initializable, ERC20PermitUpgradeable, IFYToken {
         _mint(msg.sender, mintAmount);
     }
     
+    /// @dev Transfer to multiple addresses
     function multiTransfer(address[] memory recipients, uint256[] memory amounts) external {
         require(recipients.length > 0 && amounts.length == recipients.length);
         for (uint256 i = 0; i < recipients.length; i++) transfer(recipients[i], amounts[i]);
