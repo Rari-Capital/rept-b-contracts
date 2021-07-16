@@ -16,6 +16,10 @@ module.exports = {
     }
   },
   networks: {
+    mainnet: {
+      url: process.env.MAINNET_WEB3_PROVIDER,
+      accounts: [process.env.MAINNET_PRIVATE_KEY]
+    },
     ropsten: {
       url: process.env.ROPSTEN_WEB3_PROVIDER,
       accounts: [process.env.ROPSTEN_PRIVATE_KEY]

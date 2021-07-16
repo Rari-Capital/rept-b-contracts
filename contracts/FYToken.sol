@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity 0.8.6;
 
 import "@openzeppelin/contracts-upgradeable/token/ERC20/extensions/draft-ERC20PermitUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
@@ -19,6 +19,9 @@ contract FYToken is Initializable, ERC20PermitUpgradeable, IFYToken {
     ) initializer public {
         __ERC20_init(name, symbol);
         __ERC20Permit_init(name);
+        require(_maturity > 0, "Invalid maturity.");
+        require(mintAmount > 0, "Invalid mint amount.");
+        require(_underlying != address(0), "Invalid underlying.");
         maturity = _maturity;
         underlying = _underlying;
         _mint(msg.sender, mintAmount);

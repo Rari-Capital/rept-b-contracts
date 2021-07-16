@@ -42,7 +42,7 @@ async function main() {
     amounts[i] = amounts[i].toString();
     if (amounts[i] / 1e18 >= 100000) console.log("User receiving >= 100,000 DAI:", users[i], amounts[i] / 1e18);
   }
-  for (var i = 0; i < users.length; i += 200) await fyToken.multiTransfer(users.slice(i, i + 200), amounts.slice(i, i + 200));
+  for (var i = 0; i < users.length; i += 400) await fyToken.multiTransfer(users.slice(i, i + 400), amounts.slice(i, i + 400));
 }
 
 // We recommend this pattern to be able to use async/await everywhere
