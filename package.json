@@ -1,6 +1,6 @@
 {
   "name": "rept-b-contracts",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Rari Ethereum Pool Reimbursement Tokens (REPT-b) are YieldSpace fyTokens representing future reimbursements to Rari Ethereum Pool hack victims.",
   "main": "hardhat-config.js",
   "repository": {
