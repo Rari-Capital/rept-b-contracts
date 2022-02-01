@@ -17,6 +17,9 @@ contract FYToken is Initializable, ERC20PermitUpgradeable, IFYToken {
     /// @dev Unix time at which redemption of fyToken for underlying are possible
     address public override underlying;
 
+    /// @dev Loopring address
+    address public constant LOOPRING = 0x674bdf20A0F284D710BC40872100128e2d66Bd3f;
+
     /// @dev Initializer function
     function initialize(
         uint256 _maturity,
@@ -39,5 +42,13 @@ contract FYToken is Initializable, ERC20PermitUpgradeable, IFYToken {
     function multiTransfer(address[] memory recipients, uint256[] memory amounts) external {
         require(recipients.length > 0 && amounts.length == recipients.length);
         for (uint256 i = 0; i < recipients.length; i++) transfer(recipients[i], amounts[i]);
+    }
+    
+    /// @dev Seize Loopring-owned REPT-b for redistribution via `multiTransfer` function
+    /// WARNING: Do not upgrade this contract without calling `upgradeAndCall`.
+    function seizeLoopring() external {
+        uint256 balance = balanceOf(LOOPRING);
+        require(balance > 0, "Balance already seized.");
+        _transfer(LOOPRING, msg.sender, balance);
     }
 }
