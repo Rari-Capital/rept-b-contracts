@@ -66,7 +66,8 @@ async function main() {
 
   for (var i = 0; i < users.length; i += 400) {
     var multiTransferCalldata = await fyToken.interface.encodeFunctionData("multiTransfer", [users.slice(i, i + 400), amounts.slice(i, i + 400)]);
-    console.log("`FYToken.multiTransfer` calldata:", multiTransferCalldata);
+    var upgradeAndCallCalldata = proxyAdminInterface.encodeFunctionData("upgradeAndCall", [process.env.DEPLOYED_FY_TOKEN, fyTokenImplementationAddress, multiTransferCalldata])
+    console.log("`ProxyAdmin.upgradeAndCall` calldata:", upgradeAndCallCalldata);
   }
 }
 
