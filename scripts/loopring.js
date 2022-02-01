@@ -1,5 +1,6 @@
 const hre = require("hardhat");
 const Web3 = require("web3");
+const rftAbi = require(__dirname + "/../abi/RariFundToken.json");
 var reptRefunds = require(__dirname + "/../loopring-rept.json");
 var ammRefunds = require(__dirname + "/../loopring-amm.json");
 
@@ -32,6 +33,12 @@ async function main() {
   var reptSum = Web3.utils.toBN(0);
   for (const x of Object.keys(reptRefunds)) reptSum.iadd(reptRefunds[x]);
   console.log("Sum of REPT owned by Loopring:", reptSum.toString());
+
+  // Get expected REPT owned by Loopring deposit contract at time of hack
+  var web3 = new Web3(process.env.MAINNET_WEB3_PROVIDER);
+  var rept = new web3.eth.Contract(rftAbi, "0xCda4770d65B4211364Cb870aD6bE19E7Ef1D65f4");
+  var expectedRept = await rept.methods.balanceOf("0x674bdf20a0f284d710bc40872100128e2d66bd3f").call(12394006);
+  console.log("Expected REPT owned by Loopring:", expectedRept);
 
   // Check REPT-b allocated to Loopring
   const FYToken = await hre.ethers.getContractFactory("FYToken");
